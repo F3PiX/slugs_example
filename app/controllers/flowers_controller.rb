@@ -1,5 +1,5 @@
 class FlowersController < ApplicationController
-  before_action :set_flower, only: [:show, :edit, :update, :destroy]
+  before_action :find_flower, only: [:show, :edit, :update, :destroy]
 
   # GET /flowers
   # GET /flowers.json
@@ -62,12 +62,10 @@ class FlowersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_flower
-      @flower = Flower.find(params[:id])
+    def find_flower
+      @flower = Flower.friendly.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def flower_params
       params.require(:flower).permit(:title, :colour)
     end
