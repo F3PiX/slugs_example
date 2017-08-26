@@ -7,6 +7,7 @@
     <tr>
       <th>Title</th>
       <th>Colour</th>
+      <th>Slug</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,6 +17,7 @@
       <tr>
         <td><%= flower.title %></td>
         <td><%= flower.colour %></td>
+        <td><%= flower.slug %></td>
         <td><%= link_to 'Show', flower %></td>
         <td><%= link_to 'Edit', edit_flower_path(flower) %></td>
         <td><%= link_to 'Destroy', flower, method: :delete, data: { confirm: 'Are you sure?' } %></td>

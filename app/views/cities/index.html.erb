@@ -7,6 +7,7 @@
     <tr>
       <th>Title</th>
       <th>Country</th>
+      <th>Slug</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,6 +17,7 @@
       <tr>
         <td><%= city.title %></td>
         <td><%= city.country %></td>
+        <td><%= city.slug %></td>
         <td><%= link_to 'Show', city %></td>
         <td><%= link_to 'Edit', edit_city_path(city) %></td>
         <td><%= link_to 'Destroy', city, method: :delete, data: { confirm: 'Are you sure?' } %></td>
