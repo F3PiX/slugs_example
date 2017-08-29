@@ -1,6 +1,7 @@
 class SlugsController < ApplicationController
 
   def show
+    normalize_user_input
     @slug = FriendlyId::Slug.find_by(slug: slug_params)
     if @slug
       render_view
@@ -12,8 +13,9 @@ class SlugsController < ApplicationController
   private
   attr_reader :slug_params
 
-  def slug_params
-    @slug_params ||= params[:id]
+  def normalize_user_input
+    # strips everything but letter, number, _ and -
+    @slug_params ||= params[:id].gsub(/[^\w-]/, '')
   end
 
   def render_view
